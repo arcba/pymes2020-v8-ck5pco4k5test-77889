@@ -1,10 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { Articulo } from "../../models/articulo";
-import { ArticuloFamilia } from "../../models/articulo-familia";
-import { MockArticulosService } from "../../services/mock-articulos.service";
-import { MockArticulosFamiliasService } from "../../services/mock-articulos-familias.service";
-import { ArticulosService } from "../../services/articulos.service";
-import { ArticulosFamiliasService } from "../../services/articulos-familias.service";
+import { ServiciosService } from "../../services/servicios.service";
+import { Servicio } from "../../models/servicio";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ModalDialogService } from "../../services/modal-dialog.service";
 
@@ -14,10 +10,20 @@ import { ModalDialogService } from "../../services/modal-dialog.service";
   styleUrls: ["./servicios.component.css"]
 })
 export class ServiciosComponent implements OnInit {
+  Lista: Servicio[] = [];
   constructor(
-    public formBuilder: FormBuilder
-  ) {
-    
+    public formBuilder: FormBuilder,
+    private serviciosService: ServiciosService,
+    private modalDialogService: ModalDialogService
+  ) {}
+  ngOnInit() {
+    this.Lista;
   }
-  ngOnInit() {}
+
+  GetFamiliasArticulos() {
+    this.serviciosService.get().subscribe((res: any) => {
+      console.log(res);
+      this.Lista = res.Lista;
+    });
+  }
 }

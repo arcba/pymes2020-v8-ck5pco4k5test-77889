@@ -1,1 +1,16 @@
-servicios works!
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th class="text-center">Descripcion</th>
+			<th class="text-center">Importe</th>
+			<th class="text-center">Cantidad Horas</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let dto of Lista">
+			<td>{{dto.descripcion | uppercase}}</td>
+			<td class="text-right">{{dto.importe | currency:'$'}}</td>
+			<td class="text-right">{{dto.cantidadhoras}}</td>
+		</tr>
+	</tbody>
+</table>

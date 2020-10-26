@@ -22,8 +22,6 @@ import { ModalDialogComponent } from "./components/modal-dialog/modal-dialog.com
 
 import { ServiciosComponent } from "./components/servicios/servicios.component";
 
-import { ServiciosService } from "./services/servicios.service";
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +40,8 @@ import { ServiciosService } from "./services/servicios.service";
       { path: "", redirectTo: "/inicio", pathMatch: "full" },
       { path: "inicio", component: InicioComponent },
       { path: "articulos", component: ArticulosComponent },
-      { path: "articulosfamilias", component: ArticulosFamiliasComponent }
+      { path: "articulosfamilias", component: ArticulosFamiliasComponent },
+      { path: "servicios", component: ServiciosComponent }
     ]),
     NgbPaginationModule,
     NgbModalModule
